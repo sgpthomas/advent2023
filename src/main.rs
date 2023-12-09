@@ -1,9 +1,11 @@
 mod day1;
+mod day2;
 
 use std::{fs::File, io::Read, path::PathBuf, time::Instant};
 
 use argh::FromArgs;
 use day1::Day1;
+use day2::Day2;
 
 /// Run the solution for a particular day
 #[derive(FromArgs)]
@@ -82,6 +84,7 @@ fn main() {
 
     match args.day.as_str() {
         "day1" => Day1::run(&input, args.short),
+        "day2" => Day2::run(&input, args.short),
         _ => panic!("Unknown day"),
     }
 }
