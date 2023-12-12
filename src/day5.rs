@@ -149,7 +149,6 @@ impl Solution for Day5 {
         ThreadPoolBuilder::new().num_threads(2).build_global();
 
         seeds
-            // .par_windows(2)
             .iter()
             .tuples()
             .filter_map(|(start, length)| {
