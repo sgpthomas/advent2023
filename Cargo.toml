@@ -7,5 +7,7 @@ edition = "2021"
 
 [dependencies]
 argh = "0.1.12"
+indicatif = { version = "0.17.7", features = ["rayon"] }
 itertools = "0.12.0"
+rayon = "1.8.0"
 regex = "1.10.2"
