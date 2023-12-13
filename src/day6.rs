@@ -100,20 +100,20 @@ impl Race {
 }
 
 impl Solution for Day6 {
-    fn part1(input: &str) -> Option<usize> {
+    fn part1(input: &str) -> Option<i64> {
         let Races(races) = input.parse().unwrap();
         Some(
             races
                 .iter()
                 .map(|r| r.winning_range())
                 .map(|(l, u)| u - l + 1)
-                .product(),
+                .product::<usize>() as i64,
         )
     }
 
-    fn part2(input: &str) -> Option<usize> {
+    fn part2(input: &str) -> Option<i64> {
         let LongRace(race) = input.parse().unwrap();
         let (l, u) = race.winning_range();
-        Some(u - l + 1)
+        Some((u - l + 1) as i64)
     }
 }

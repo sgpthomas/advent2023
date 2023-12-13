@@ -31,18 +31,18 @@ impl Day1 {
 }
 
 impl Solution for Day1 {
-    fn part1(input: &str) -> Option<usize> {
+    fn part1(input: &str) -> Option<i64> {
         Some(
             input
                 .lines()
                 .map(|line| line.matches(char::is_numeric).collect::<Vec<_>>())
                 .map(|digits| (digits[0], digits[digits.len() - 1]))
                 .map(|(first, last)| format!("{first}{last}").parse::<usize>().unwrap())
-                .sum(),
+                .sum::<usize>() as i64,
         )
     }
 
-    fn part2(input: &str) -> Option<usize> {
+    fn part2(input: &str) -> Option<i64> {
         let re = Regex::new("(one|two|three|four|five|six|seven|eight|nine|zero|[0-9])").unwrap();
         Some(
             input
@@ -54,7 +54,7 @@ impl Solution for Day1 {
                 .map(|digits| (digits[0], digits[digits.len() - 1]))
                 .map(|(first, last)| (Self::parse(first), Self::parse(last)))
                 .map(|(first, last)| first * 10 + last)
-                .sum(),
+                .sum::<usize>() as i64,
         )
     }
 }

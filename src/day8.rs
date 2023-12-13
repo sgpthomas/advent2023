@@ -94,7 +94,7 @@ impl Node {
 }
 
 impl Solution for Day8 {
-    fn part1(input: &str) -> Option<usize> {
+    fn part1(input: &str) -> Option<i64> {
         let Input(insts, nodes) = input.parse().unwrap();
         let mut node = &nodes["AAA"];
         let mut insts_iter = insts.iter().cycle();
@@ -107,7 +107,7 @@ impl Solution for Day8 {
         Some(count)
     }
 
-    fn part2(input: &str) -> Option<usize> {
+    fn part2(input: &str) -> Option<i64> {
         let Input(insts, map) = input.parse().unwrap();
 
         let mut insts_iter = insts.iter().cycle();
@@ -121,9 +121,9 @@ impl Solution for Day8 {
                 .filter(|x| x.ends_with("A"))
                 .map(|key| &map[key])
                 .sorted_by(|n1, n2| n1.name.cmp(&n2.name))
-                .map(|node| node.frequency(&map, &insts))
-                .product::<usize>()
-                * insts.len(),
+                .map(|node| node.frequency(&map, &insts) as i64)
+                .product::<i64>()
+                * insts.len() as i64,
         )
     }
 }

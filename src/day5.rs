@@ -137,12 +137,17 @@ impl Range {
 }
 
 impl Solution for Day5 {
-    fn part1(input: &str) -> Option<usize> {
+    fn part1(input: &str) -> Option<i64> {
         let Input(seeds, mut almanac) = input.parse().unwrap();
-        almanac.translate_vec(&seeds).iter().copied().min()
+        almanac
+            .translate_vec(&seeds)
+            .iter()
+            .copied()
+            .min()
+            .map(|x| x as i64)
     }
 
-    fn part2(input: &str) -> Option<usize> {
+    fn part2(input: &str) -> Option<i64> {
         println!("Starting part 2");
         let Input(seeds, mut almanac) = input.parse().unwrap();
 
@@ -160,5 +165,6 @@ impl Solution for Day5 {
                     .min()
             })
             .min()
+            .map(|x| x as i64)
     }
 }

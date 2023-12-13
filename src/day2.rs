@@ -105,17 +105,17 @@ impl Round {
 }
 
 impl Solution for Day2 {
-    fn part1(input: &str) -> Option<usize> {
+    fn part1(input: &str) -> Option<i64> {
         Some(
             input
                 .lines()
                 .map(|line| line.parse::<Game>().unwrap())
                 .filter_map(|game| game.possible_with(12, 13, 14).then_some(game.id))
-                .sum(),
+                .sum::<usize>() as i64,
         )
     }
 
-    fn part2(input: &str) -> Option<usize> {
+    fn part2(input: &str) -> Option<i64> {
         Some(
             input
                 .lines()
@@ -124,7 +124,7 @@ impl Solution for Day2 {
                     let (r, g, b) = game.min_possible();
                     r * g * b
                 })
-                .sum(),
+                .sum::<usize>() as i64,
         )
     }
 }

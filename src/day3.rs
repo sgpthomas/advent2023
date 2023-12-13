@@ -144,7 +144,7 @@ trait SchematicIterAdapter: Iterator<Item = char> + Sized {
 impl<I: Iterator<Item = char>> SchematicIterAdapter for I {}
 
 impl Solution for Day3 {
-    fn part1(input: &str) -> Option<usize> {
+    fn part1(input: &str) -> Option<i64> {
         let scheme = input.parse::<Schematic>().unwrap();
 
         Some(
@@ -153,11 +153,11 @@ impl Solution for Day3 {
                 .iter()
                 .map(|(x, y, _)| scheme.nums_adjacent(*x, *y))
                 .flatten()
-                .sum::<i32>() as usize,
+                .sum::<i32>() as i64,
         )
     }
 
-    fn part2(input: &str) -> Option<usize> {
+    fn part2(input: &str) -> Option<i64> {
         let scheme = input.parse::<Schematic>().unwrap();
 
         Some(
@@ -168,7 +168,7 @@ impl Solution for Day3 {
                 .map(|(x, y, _)| scheme.nums_adjacent(*x, *y).collect_vec())
                 .filter(|vals| vals.len() == 2)
                 .map(|vals| vals[0] * vals[1])
-                .sum::<i32>() as usize,
+                .sum::<i32>() as i64,
         )
     }
 }

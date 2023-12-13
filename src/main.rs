@@ -88,8 +88,8 @@ struct Cmdline {
 }
 
 trait Solution {
-    fn part1(input: &str) -> Option<usize>;
-    fn part2(input: &str) -> Option<usize>;
+    fn part1(input: &str) -> Option<i64>;
+    fn part2(input: &str) -> Option<i64>;
     fn run(input: &str, short: bool) {
         let (part1_sol, part1_time, part2_sol, part2_time) = if short {
             let (part1_input, part2_input) =

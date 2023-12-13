@@ -211,7 +211,7 @@ impl PartialOrd for Hand {
 }
 
 impl Solution for Day7 {
-    fn part1(input: &str) -> Option<usize> {
+    fn part1(input: &str) -> Option<i64> {
         let Game(games) = input.parse().unwrap();
         Some(
             games
@@ -219,11 +219,11 @@ impl Solution for Day7 {
                 .sorted_by(|(h1, _), (h2, _)| h1.partial_cmp(h2).unwrap())
                 .enumerate()
                 .map(|(rank, (h, bid))| (rank + 1) * bid)
-                .sum(),
+                .sum::<usize>() as i64,
         )
     }
 
-    fn part2(input: &str) -> Option<usize> {
+    fn part2(input: &str) -> Option<i64> {
         println!("");
         println!("== part 2 ==");
         // we are going to replace all instances of J with 1 which
@@ -236,7 +236,7 @@ impl Solution for Day7 {
                 .sorted_by(|(h1, _), (h2, _)| h1.partial_cmp(h2).unwrap())
                 .enumerate()
                 .map(|(rank, (h, bid))| (rank + 1) * bid)
-                .sum(),
+                .sum::<usize>() as i64,
         )
     }
 }

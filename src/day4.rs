@@ -106,13 +106,13 @@ impl Game {
 }
 
 impl Solution for Day4 {
-    fn part1(input: &str) -> Option<usize> {
+    fn part1(input: &str) -> Option<i64> {
         let game: Game = input.parse().unwrap();
-        Some(game.cards.iter().map(|x| x.score()).sum())
+        Some(game.cards.iter().map(|x| x.score()).sum::<usize>() as i64)
     }
 
-    fn part2(input: &str) -> Option<usize> {
+    fn part2(input: &str) -> Option<i64> {
         let mut game: Game = input.parse().unwrap();
-        Some(game.explode())
+        Some(game.explode() as i64)
     }
 }
