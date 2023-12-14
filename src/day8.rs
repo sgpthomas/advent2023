@@ -116,6 +116,7 @@ impl Solution for Day8 {
         // seperately. The freqency is the number of full insts cycles that
         // it takes to hit a node that ends with Z. all of the nodes will
         // line up at the lowest common multiple of all the frequencies.
+        // the data has to be constructed in a way that this will work
         Some(
             map.keys()
                 .filter(|x| x.ends_with("A"))
